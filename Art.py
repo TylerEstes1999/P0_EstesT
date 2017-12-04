@@ -75,7 +75,7 @@ def pattern_3(turt):
 
 def pattern_4(turt):
     """
-    A spiraling triangle pattern that an be randomly drawn.
+    A spiraling triangle pattern that can be randomly drawn.
     :param turt: The turtle object that is being used to draw.
     :return:
     """
@@ -88,7 +88,16 @@ def pattern_4(turt):
 
 
 def pattern_5(turt):
-    pass
+    """
+    A pattern made up of circles that can be randomly drawn.
+    :param turt: The turtle object that is being used to draw.
+    :return:
+    """
+    turt.color((random.random(), random.random(), random.random()))
+    x = random.randint(25, 75)
+    for i in range(8):
+        turt.circle(x)
+        turt.left(60)
 
 
 def main():
@@ -101,22 +110,20 @@ def main():
     wn.bgcolor("white")
     turt.speed(5)
     turt.pensize(1)
-
-    pattern_4(turt)
-
     x = True
     while x is True:
         turt.penup()
         turt.goto(random.randint(-300, 300), random.randint(-300, 300))
         turt.pendown()
 
-        draw_shapes(turt, random.randint(3, 10))
+        draw_shapes(turt, random.randint(3, 7))
 
         turt.penup()
         turt.goto(random.randint(-300, 300), random.randint(-300, 300))
         turt.pendown()
 
-        # random.random(pattern_1(turt), pattern_2(turt), pattern_3(turt), pattern_4(turt), pattern_5(turt))
+        pattern_list = [pattern_1, pattern_2, pattern_3, pattern_4, pattern_5]
+        random.choice(pattern_list)(turt)
 
         turt.penup()
         turt.goto(random.randint(-300, 300), random.randint(-300, 300))
