@@ -31,6 +31,7 @@ def draw_shapes(turt, side_num):
 
 # Begin pattern section
 
+
 def pattern_1(turt):
     """
     A triangle pattern that can be randomly drawn.
@@ -38,8 +39,8 @@ def pattern_1(turt):
     :return:
     """
     turt.color((random.random(), random.random(), random.random()))
-    x = random.randint(25, 100)
-    for i in range(x):
+    x = random.randint(50, 100)
+    for i in range(41):
         turt.forward(x)
         turt.right(123)
 
@@ -52,7 +53,7 @@ def pattern_2(turt):
     """
     turt.color((random.random(), random.random(), random.random()))
     turt.begin_fill()
-    x = random.randint(25, 100)
+    x = random.randint(25, 75)
     for i in range(5):
         turt.forward(x)
         turt.left(144)
@@ -66,7 +67,7 @@ def pattern_3(turt):
     :return:
     """
     turt.color((random.random(), random.random(), random.random()))
-    x = random.randint(25, 100)
+    x = random.randint(25, 75)
     for y in range(10):
         for i in range(4):
             turt.forward(x)
@@ -181,7 +182,7 @@ def pattern_10(turt):
             turt.forward(x)
             turt.left(120)
         turt.left(5)
-        turt.forward(5)
+        turt.forward(10)
 
 
 def pattern_11(turt):
@@ -210,9 +211,71 @@ def pattern_12(turt):
         for i in range(4):
             turt.forward(x)
             turt.right(90)
+        turt.right(20)
         turt.forward(10)
-        turt.right(18)
-        x = x + 10
+        x = x + 5
+
+
+def pattern_13(turt):
+    """
+    A pattern that is made up of hexagons that can be randomly drawn.
+    :param turt: The turtle object that is being used to draw.
+    :return:
+    """
+    turt.color((random.random(), random.random(), random.random()))
+    x = random.randint(25, 75)
+    for y in range(6):
+        for i in range(6):
+            turt.forward(x)
+            turt.right(60)
+        turt.right(60)
+
+
+def pattern_14(turt):
+    """
+    A spiraling pattern that stamps the turtle on the screen in each iteration that can be randomly drawn.
+    :param turt: The turtle object that is being used to draw.
+    :return:
+    """
+    turt.color((random.random(), random.random(), random.random()))
+    x = random.randint(10, 25)
+    for i in range(15):
+        turt.stamp()
+        turt.right(45)
+        turt.forward(x)
+        x = x + 5
+
+
+def pattern_15(turt):
+    """
+    A circular pattern made up of pentagons that can be randomly drawn.
+    :param turt: The turtle object that is being used to draw.
+    :return:
+    """
+    turt.color((random.random(), random.random(), random.random()))
+    x = random.randint(25, 50)
+    for y in range(75):
+        for i in range(5):
+            turt.forward(x)
+            turt.left(72)
+        turt.left(5)
+        turt.forward(x)
+
+
+def pattern_16(turt):
+    """
+    A square-based flower pattern that can be randomly drawn.
+    :param turt: The turtle object that is being used to draw.
+    :return:
+    """
+    turt.color((random.random(), random.random(), random.random()))
+    x = random.randint(25, 75)
+    for y in range(20):
+        for i in range(4):
+            turt.forward(x)
+            turt.right(90)
+        turt.right(20)
+
 
 # End pattern section
 
@@ -223,24 +286,27 @@ def main():
     :return: None
     """
     turt = turtle.Turtle()
+    turt.shape("turtle")
     wn = turtle.Screen()
     wn.bgcolor("white")
     turt.speed(0)
     turt.pensize(1.5)
+    turt.forward(-120)
+    turt.write("Enjoy your new art!", move=True, align="left", font=("Arial", 20, "normal"))
     x = True
     while x is True:
         turt.penup()
         turt.goto(random.randint(-300, 300), random.randint(-300, 300))  # Moves the turtle to a random location
         turt.pendown()
 
-        draw_shapes(turt, random.randint(3, 6))  # Draws a random ploygon
+        draw_shapes(turt, random.randint(3, 6))  # Draws a random polygon
 
         turt.penup()
         turt.goto(random.randint(-300, 300), random.randint(-300, 300))  # Moves the turtle to a random location
         turt.pendown()
 
         pattern_list = [pattern_1, pattern_2, pattern_3, pattern_4, pattern_5, pattern_6, pattern_7, pattern_8, pattern_9,
-                        pattern_10, pattern_11, pattern_12]
+                        pattern_10, pattern_11, pattern_12, pattern_13, pattern_14, pattern_15, pattern_16]
         random.choice(pattern_list)(turt)  # Picks a random pattern from pattern_list and draws it.
 
         turt.penup()
