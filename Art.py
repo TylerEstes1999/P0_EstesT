@@ -277,6 +277,21 @@ def pattern_16(turt):
         turt.right(20)
 
 
+def pattern_17(turt):
+    """
+    A pattern made up of triangles inside a heptagon that can be randomly drawn.
+    :param turt: The turtle object that is being used to draw.
+    :return:
+    """
+    turt.color((random.random(), random.random(), random.random()))
+    x = random.randint(25, 75)
+    for y in range(7):
+        for i in range(10):
+            turt.forward(x)
+            turt.right(270)
+        turt.forward(x)
+        turt.right(25)
+
 # End pattern section
 
 
@@ -293,6 +308,9 @@ def main():
     turt.pensize(1.5)
     turt.forward(-120)
     turt.write("Enjoy your new art!", move=True, align="left", font=("Arial", 20, "normal"))
+
+    pattern_17(turt)
+
     x = True
     while x is True:
         turt.penup()
