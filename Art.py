@@ -29,6 +29,7 @@ def draw_shapes(turt, side_num):
         turt.right(angle)
     turt.end_fill()
 
+# Begin pattern section
 
 def pattern_1(turt):
     """
@@ -109,14 +110,12 @@ def pattern_6(turt):
     """
     turt.color((random.random(), random.random(), random.random()))
     x = random.randint(25, 100)
-    turt.begin_fill()
     for y in range(10):
         for i in range(3):
             turt.forward(x)
             turt.left(120)
         turt.left(45)
         turt.forward(x)
-    turt.end_fill()
 
 
 def pattern_7(turt):
@@ -148,33 +147,105 @@ def pattern_8(turt):
         turt.forward(x)
         turt.right(90)
 
+
+def pattern_9(turt):
+    """
+    A plus-shaped pattern that can be randomly drawn.
+    :param turt: The turtle object that is being used to draw.
+    :return:
+    """
+    turt.color((random.random(), random.random(), random.random()))
+    x = random.randint(25, 75)
+    y = random.randint(10, 50)
+    turt.begin_fill()
+    for i in range(4):
+        turt.forward(x)
+        turt.left(90)
+        turt.forward(x)
+        turt.right(90)
+        turt.forward(y)
+        turt.right(90)
+    turt.end_fill()
+
+
+def pattern_10(turt):
+    """
+    A circular pattern made of triangles that can be randomly drawn.
+    :param turt: The turtle object being used to draw.
+    :return:
+    """
+    turt.color((random.random(), random.random(), random.random()))
+    x = random.randint(5, 15)
+    for y in range(75):
+        for i in range(3):
+            turt.forward(x)
+            turt.left(120)
+        turt.left(5)
+        turt.forward(5)
+
+
+def pattern_11(turt):
+    """
+    A circular pattern made up of smaller circles that can be randomly drawn.
+    :param turt: The turtle object being used to draw.
+    :return:
+    """
+    turt.color((random.random(), random.random(), random.random()))
+    x = random.randint(10, 50)
+    for i in range(75):
+        turt.circle(x)
+        turt.left(5)
+        turt.forward(20)
+
+
+def pattern_12(turt):
+    """
+    A spiral that is built out of squares that can be randomly drawn.
+    :param turt: The turtle object that is being used to draw.
+    :return:
+    """
+    turt.color((random.random(), random.random(), random.random()))
+    x = random.randint(25, 75)
+    for y in range(25):
+        for i in range(4):
+            turt.forward(x)
+            turt.right(90)
+        turt.forward(10)
+        turt.right(18)
+        x = x + 10
+
+# End pattern section
+
+
 def main():
     """
-    The main function which draws a random shapes, a random pattern, and then loops indefinitely.
+    The main function which draws a random shape, a random pattern, and then loops indefinitely.
     :return: None
     """
     turt = turtle.Turtle()
     wn = turtle.Screen()
     wn.bgcolor("white")
     turt.speed(0)
-    turt.pensize(1)
+    turt.pensize(1.5)
     x = True
     while x is True:
         turt.penup()
-        turt.goto(random.randint(-300, 300), random.randint(-300, 300))
+        turt.goto(random.randint(-300, 300), random.randint(-300, 300))  # Moves the turtle to a random location
         turt.pendown()
 
-        draw_shapes(turt, random.randint(3, 6))
+        draw_shapes(turt, random.randint(3, 6))  # Draws a random ploygon
 
         turt.penup()
-        turt.goto(random.randint(-300, 300), random.randint(-300, 300))
+        turt.goto(random.randint(-300, 300), random.randint(-300, 300))  # Moves the turtle to a random location
         turt.pendown()
 
-        pattern_list = [pattern_1, pattern_2, pattern_3, pattern_4, pattern_5, pattern_6, pattern_7, pattern_8]
-        random.choice(pattern_list)(turt)
+        pattern_list = [pattern_1, pattern_2, pattern_3, pattern_4, pattern_5, pattern_6, pattern_7, pattern_8, pattern_9,
+                        pattern_10, pattern_11, pattern_12]
+        random.choice(pattern_list)(turt)  # Picks a random pattern from pattern_list and draws it.
 
         turt.penup()
-        turt.goto(random.randint(-300, 300), random.randint(-300, 300))
+        turt.goto(random.randint(-300, 300), random.randint(-300, 300))  # Moves the turtle to a random location
         turt.pendown()
+
 
 main()
