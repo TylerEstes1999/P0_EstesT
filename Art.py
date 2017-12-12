@@ -321,7 +321,7 @@ def main():
         turt.pendown()
 
         pattern_list = [pattern_1, pattern_2, pattern_3, pattern_4, pattern_5, pattern_6, pattern_7, pattern_8, pattern_9,
-                        pattern_10, pattern_11, pattern_12, pattern_13, pattern_14, pattern_15, pattern_16]
+                        pattern_10, pattern_11, pattern_12, pattern_13, pattern_14, pattern_15, pattern_16, pattern_17]
         random.choice(pattern_list)(turt)  # Picks a random pattern from pattern_list and draws it.
 
         turt.penup()
