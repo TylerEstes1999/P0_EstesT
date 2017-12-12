@@ -308,9 +308,6 @@ def main():
     turt.pensize(1.5)
     turt.forward(-120)
     turt.write("Enjoy your new art!", move=True, align="left", font=("Arial", 20, "normal"))
-
-    pattern_17(turt)
-
     x = True
     while x is True:
         turt.penup()
